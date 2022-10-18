@@ -8,7 +8,7 @@ const forecast = (longitude, latitude, callback) => {
     request({url : url, json: true }, (error, response) => {
 
   if (error) return callback('Please check your connection', undefined)
-  callback(undefined, 'It is '+ response.body.current.weather_descriptions[0] + ' It is currently '+ response.body.current.temperature + ' degrees out And there is ' + response.body.current.precip + '% chance of rain.')
+  callback(undefined, 'It is '+ response.body.current.weather_descriptions[0] + ' It is currently '+ response.body.current.temperature + ' degrees out And there is ' + response.body.current.precip + '% chance of rain.\n' + response.body.current.pressure + "psi as the current pressure" + " and " + response.body.current.wind_speed + " as the wind speed")
   })
 }
 
